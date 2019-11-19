@@ -1,6 +1,6 @@
 "use strict";
 
-const CARD_COUNT = 3;
+const CARD_QUANTITY = 3;
 const main = document.querySelector(`.main`);
 const control = document.querySelector(`.control`);
 
@@ -8,8 +8,7 @@ const renderElement = (container, markup, position = `beforeend`) => {
   container.insertAdjacentHTML(position, markup);
 };
 
-const getFormMarkup = () => {
-  return `
+const getFormMarkup = () => `
     <section class="control__btn-wrap">
       <input
         type="radio"
@@ -39,10 +38,8 @@ const getFormMarkup = () => {
       >
     </section>
   `;
-};
 
-const getSearchMarkup = () => {
-  return `
+const getSearchMarkup = () => `
     <section class="main__search search container">
       <input
         type="text"
@@ -53,10 +50,8 @@ const getSearchMarkup = () => {
       <label class="visually-hidden" for="search__input">Search</label>
     </section>
   `;
-};
 
-const getFiltersMarkup = () => {
-  return `
+const getFiltersMarkup = () => `
     <section class="main__filter filter container">
       <input
         type="radio"
@@ -126,26 +121,20 @@ const getFiltersMarkup = () => {
       >
     </section>
   `;
-};
 
-const getLoadMoreButtonMarkup = () => {
-  return `
+const getLoadMoreButtonMarkup = () => `
     <button class="load-more" type="button">load more</button>
   `;
-};
 
-const getBoardnMarkup = () => {
-  return `
+const getBoardnMarkup = () => `
     <div class="board__filter-list">
       <a href="#" class="board__filter">SORT BY DEFAULT</a>
       <a href="#" class="board__filter">SORT BY DATE up</a>
       <a href="#" class="board__filter">SORT BY DATE down</a>
     </div>
   `;
-};
 
-const getCardMarkup = () => {
-  return `
+const getCardMarkup = () => `
     <article class="card card--black">
       <div class="card__form">
         <div class="card__inner">
@@ -212,14 +201,10 @@ const getCardMarkup = () => {
       </div>
     </article>
   `;
-};
 
-const fillCardsMarkup = (count) => {
-  return new Array(count).fill(getCardMarkup()).join(``);
-};
+const fillCardsMarkup = (cardsQuantity) => new Array(cardsQuantity).fill(getCardMarkup()).join(``);
 
-const getContentMarkup = (cardsQuantity) => {
-  return `
+const getContentMarkup = (cardsQuantity) => `
     <section class="board container">
       ${getBoardnMarkup()}
 
@@ -230,7 +215,6 @@ const getContentMarkup = (cardsQuantity) => {
       ${getLoadMoreButtonMarkup()}
     </section>
   `;
-};
 
 const drawIndexMarkup = (cardsQuantity) => {
   renderElement(control, getFormMarkup());
@@ -239,4 +223,4 @@ const drawIndexMarkup = (cardsQuantity) => {
   renderElement(main, getContentMarkup(cardsQuantity));
 };
 
-drawIndexMarkup(CARD_COUNT);
+drawIndexMarkup(CARD_QUANTITY);
