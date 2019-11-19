@@ -1,5 +1,6 @@
 "use strict";
 
+const CARD_COUNT = 3;
 const main = document.querySelector(`.main`);
 const control = document.querySelector(`.control`);
 
@@ -238,4 +239,4 @@ const drawIndexMarkup = (cardsQuantity) => {
   renderElement(main, getContentMarkup(cardsQuantity));
 };
 
-drawIndexMarkup(3);
+drawIndexMarkup(CARD_COUNT);
